@@ -1,95 +1,138 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import { useState } from 'react';
+import Image from 'next/image';
+import styles from './page.module.css';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  // Guarda qual dropdown está aberto (ou null se nenhum)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  // Alterna o dropdown: se o mesmo botão for clicado, fecha; caso contrário, abre o selecionado
+  const toggleDropdown = (menu: string) => {
+    setOpenDropdown((prev) => (prev === menu ? null : menu));
+  };
+
+  // Opções de exemplo para cada menu
+  const dropdownOptions = {
+    visaoMissao: ["Visão", "Missão", "Valores"],
+    planoGoverno: ["Eixos", "Projetos", "Investimentos"],
+    avaliacaoExterna: ["Relatórios", "Resultados", "Feedback"],
+  };
+
+  return (
+    <main className={styles.main}>
+      {/* Barra Superior */}
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          {/* Logo do Programa */}
+          <Image
+            src="/logo-programa-de-metas-colorido.png"
+            alt="Logo do Programa"
+            width={140}
+            height={140}
+          />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        {/* Botões com dropdown */}
+        <nav className={styles.nav}>
+          <div className={styles.dropdownContainer}>
+            <button
+              className={styles.navButton}
+              onClick={() => toggleDropdown("visaoMissao")}
+            >
+              VISÃO E MISSÃO
+            </button>
+            {openDropdown === "visaoMissao" && (
+              <ul className={styles.dropdownMenu}>
+                {dropdownOptions.visaoMissao.map((item) => (
+                  <li key={item} className={styles.dropdownItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className={styles.dropdownContainer}>
+            <button
+              className={styles.navButton}
+              onClick={() => toggleDropdown("planoGoverno")}
+            >
+              PLANO DE GOVERNO
+            </button>
+            {openDropdown === "planoGoverno" && (
+              <ul className={styles.dropdownMenu}>
+                {dropdownOptions.planoGoverno.map((item) => (
+                  <li key={item} className={styles.dropdownItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className={styles.dropdownContainer}>
+            <button
+              className={styles.navButton}
+              onClick={() => toggleDropdown("avaliacaoExterna")}
+            >
+              PLANO DE METAS
+            </button>
+            {openDropdown === "avaliacaoExterna" && (
+              <ul className={styles.dropdownMenu}>
+                {dropdownOptions.avaliacaoExterna.map((item) => (
+                  <li key={item} className={styles.dropdownItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </nav>
+
+        <div className={styles.cityLogo}>
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/logo-prefeitura-colorido.png"
+            alt="Prefeitura Municipal de São José"
+            width={130}
+            height={70}
           />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+      </header>
+
+      {/* Banner */}
+      <section className={styles.bannerSection}>
+        <div className={styles.bannerContent}>
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/logo-programa-de-metas-branco.png"
+            alt="Logo Programa de Metas"
+            width={400}
+            height={400}
+            className={styles.bannerLogo}
           />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h2 className={styles.bannerTitle}>
+            PROGRAMA DE METAS
+            <br />
+            2025 / 2028
+          </h2>
+        </div>
+      </section>
+
+      {/* Conteúdo sobre o programa */}
+      <section className={styles.contentSection}>
+        <h1 className={styles.title}>Programa de Metas</h1>
+        <p className={styles.text}>
+          Bem-vindo ao Programa de Metas da Prefeitura Municipal de São José!
+          Aqui você encontra informações sobre os projetos, objetivos e resultados
+          que visam melhorar a qualidade de vida na nossa cidade.
+        </p>
+        <p className={styles.text}>
+          Nesta plataforma, você poderá acompanhar o andamento das metas
+          estabelecidas, conhecer detalhes de cada ação e entender como estamos
+          trabalhando para construir uma cidade mais moderna, sustentável e
+          inclusiva.
+        </p>
+      </section>
+    </main>
   );
 }

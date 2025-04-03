@@ -1,168 +1,135 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  min-height: 100vh;
+  font-family: sans-serif;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+/* Barra Superior */
+.header {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;         /* Centraliza verticalmente */
+  justify-content: center;     /* Centraliza horizontalmente */
+  gap: 1rem;
+  flex: 1;                     /* Ocupará o espaço disponível entre as logos */
+  margin: 0 2rem;              /* Espaço entre as logos e os botões */
+}
+
+/* Estilo dos botões do header */
+.navButton {
+  background-color: #00734a;
+  color: #fff;
   border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  padding: 1rem 2rem;         /* Aumenta o espaço interno do botão */
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  flex: 1;                   /* Faz com que cada botão ocupe igualmente o espaço disponível */
+  font-size: 1.2rem;
+}
+
+.navButton:hover {
+  background-color: #005f3a;
+}
+
+/* Container para posicionar o dropdown */
+.dropdownContainer {
+  position: relative;
+}
+
+/* Dropdown (menu em cascata) */
+.dropdownMenu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #00734a;
+  padding: 0.5rem 0;
+  margin-top: 0.2rem;
+  border-radius: 4px;
+  list-style: none;
+  min-width: 180px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdownItem {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #005f3a;
+}
+
+.cityLogo {
+  display: flex;
+  align-items: center;
+}
+
+/* Banner */
+.bannerSection {
+  position: relative;
+  width: 100%;
+  height: 750px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  background-image: url('/banner-sao-jose.png');
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.bannerContent {
+  text-align: center;
+  color: #fff;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.bannerLogo {
+  max-width: 150%;
+  height: auto;
 }
 
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+.bannerTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 0;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Conteúdo Principal */
+.contentSection {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-.footer img {
-  flex-shrink: 0;
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.text {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #555;
 }
