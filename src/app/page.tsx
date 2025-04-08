@@ -1,22 +1,22 @@
 "use client";
-import { useState } from 'react';
-import Image from 'next/image';
-import styles from './page.module.css';
+import { useRef } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function Home() {
-  // Guarda qual dropdown está aberto (ou null se nenhum)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // Navegação programática para outras rotas
+  const router = useRouter();
 
-  // Alterna o dropdown: se o mesmo botão for clicado, fecha; caso contrário, abre o selecionado
-  const toggleDropdown = (menu: string) => {
-    setOpenDropdown((prev) => (prev === menu ? null : menu));
-  };
+  // Refs para as seções que receberão scroll
+  const visaoMissaoRef = useRef<HTMLDivElement | null>(null);
+  const planoGovernoRef = useRef<HTMLDivElement | null>(null);
 
-  // Opções de exemplo para cada menu
-  const dropdownOptions = {
-    visaoMissao: ["Visão", "Missão", "Valores"],
-    planoGoverno: ["Eixos", "Projetos", "Investimentos"],
-    avaliacaoExterna: ["Relatórios", "Resultados", "Feedback"],
+  // Função para rolar até a seção desejada
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -24,84 +24,59 @@ export default function Home() {
       {/* Barra Superior */}
       <header className={styles.header}>
         <div className={styles.logoContainer}>
-          {/* Logo do Programa */}
           <Image
             src="/logo-programa-de-metas-colorido.png"
             alt="Logo do Programa"
-            width={140}
-            height={140}
+            width={120}
+            height={125}
           />
         </div>
 
-        {/* Botões com dropdown */}
         <nav className={styles.nav}>
-          <div className={styles.dropdownContainer}>
-            <button
-              className={styles.navButton}
-              onClick={() => toggleDropdown("visaoMissao")}
-            >
-              VISÃO E MISSÃO
-            </button>
-            {openDropdown === "visaoMissao" && (
-              <ul className={styles.dropdownMenu}>
-                {dropdownOptions.visaoMissao.map((item) => (
-                  <li key={item} className={styles.dropdownItem}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <button
+            className={styles.navButton}
+            onClick={() => scrollToSection(visaoMissaoRef)}
+          >
+            VISÃO E MISSÃO
+          </button>
 
-          <div className={styles.dropdownContainer}>
-            <button
-              className={styles.navButton}
-              onClick={() => toggleDropdown("planoGoverno")}
-            >
-              PLANO DE GOVERNO
-            </button>
-            {openDropdown === "planoGoverno" && (
-              <ul className={styles.dropdownMenu}>
-                {dropdownOptions.planoGoverno.map((item) => (
-                  <li key={item} className={styles.dropdownItem}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <button
+            className={styles.navButton}
+            onClick={() => scrollToSection(planoGovernoRef)}
+          >
+            PLANO DE GOVERNO
+          </button>
 
-          <div className={styles.dropdownContainer}>
-            <button
-              className={styles.navButton}
-              onClick={() => toggleDropdown("avaliacaoExterna")}
-            >
-              PLANO DE METAS
-            </button>
-            {openDropdown === "avaliacaoExterna" && (
-              <ul className={styles.dropdownMenu}>
-                {dropdownOptions.avaliacaoExterna.map((item) => (
-                  <li key={item} className={styles.dropdownItem}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <button
+            className={styles.navButton}
+            onClick={() => router.push("/secretarias")}
+          >
+            SECRETARIAS
+          </button>
         </nav>
 
         <div className={styles.cityLogo}>
           <Image
             src="/logo-prefeitura-colorido.png"
             alt="Prefeitura Municipal de São José"
-            width={130}
-            height={70}
+            width={160}
+            height={100}
           />
         </div>
       </header>
 
       {/* Banner */}
       <section className={styles.bannerSection}>
+        {/* Imagem de fundo usando Next Image com fill */}
+        <Image
+          src="/banner-sao-jose.png"
+          alt="Banner de São José"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          priority
+        />
+
+        {/* Conteúdo do banner */}
         <div className={styles.bannerContent}>
           <Image
             src="/logo-programa-de-metas-branco.png"
@@ -118,7 +93,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Conteúdo sobre o programa */}
+      {/* Seção VISÃO E MISSÃO */}
+      <section ref={visaoMissaoRef} className={styles.contentSection}>
+        <h1 className={styles.title}>A missão e a visão da instituição</h1>
+        <p className={styles.text}>
+          Aqui você descreve a missão e visão da instituição...
+        </p>
+        <p className={styles.text}>
+          Qualquer outro texto adicional referente à missão e visão...
+        </p>
+      </section>
+
+      {/* Seção PLANO DE GOVERNO */}
+      <section ref={planoGovernoRef} className={styles.contentSection}>
+        <h1 className={styles.title}>Proposta do Plano de Governo</h1>
+        <p className={styles.text}>
+          Descreva aqui a proposta do plano de governo...
+        </p>
+        <p className={styles.text}>
+          Mais detalhes, objetivos, metas e ações do governo...
+        </p>
+      </section>
+
+      {/* Conteúdo Geral do Programa */}
       <section className={styles.contentSection}>
         <h1 className={styles.title}>Programa de Metas</h1>
         <p className={styles.text}>
@@ -129,8 +126,7 @@ export default function Home() {
         <p className={styles.text}>
           Nesta plataforma, você poderá acompanhar o andamento das metas
           estabelecidas, conhecer detalhes de cada ação e entender como estamos
-          trabalhando para construir uma cidade mais moderna, sustentável e
-          inclusiva.
+          trabalhando para construir uma cidade mais moderna, sustentável e inclusiva.
         </p>
       </section>
     </main>
