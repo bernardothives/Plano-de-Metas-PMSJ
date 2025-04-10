@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 export default function Home() {
-  // Navegação programática para outras rotas
   const router = useRouter();
 
   // Refs para as seções que receberão scroll
@@ -21,7 +20,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {/* Barra Superior */}
+      {/* Header no fluxo normal */}
       <header className={styles.header}>
         <div className={styles.logoContainer}>
           <Image
@@ -65,9 +64,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Banner */}
+      {/* Banner preenchendo a tela */}
       <section className={styles.bannerSection}>
-        {/* Imagem de fundo usando Next Image com fill */}
         <Image
           src="/banner-sao-jose.png"
           alt="Banner de São José"
@@ -75,8 +73,6 @@ export default function Home() {
           style={{ objectFit: "cover", objectPosition: "center" }}
           priority
         />
-
-        {/* Conteúdo do banner */}
         <div className={styles.bannerContent}>
           <Image
             src="/logo-programa-de-metas-branco.png"
