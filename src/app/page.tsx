@@ -88,29 +88,7 @@ export default function Home() {
           </h2>
         </div>
       </section>
-
-      {/* Seção VISÃO E MISSÃO */}
-      <section ref={visaoMissaoRef} className={styles.contentSection}>
-        <h1 className={styles.title}>A missão e a visão da instituição</h1>
-        <p className={styles.text}>
-          Aqui você descreve a missão e visão da instituição...
-        </p>
-        <p className={styles.text}>
-          Qualquer outro texto adicional referente à missão e visão...
-        </p>
-      </section>
-
-      {/* Seção PLANO DE GOVERNO */}
-      <section ref={planoGovernoRef} className={styles.contentSection}>
-        <h1 className={styles.title}>Proposta do Plano de Governo</h1>
-        <p className={styles.text}>
-          Descreva aqui a proposta do plano de governo...
-        </p>
-        <p className={styles.text}>
-          Mais detalhes, objetivos, metas e ações do governo...
-        </p>
-      </section>
-
+      
       {/* Conteúdo Geral do Programa */}
       <section className={styles.contentSection}>
         <h1 className={styles.title}>Programa de Metas</h1>
@@ -123,6 +101,37 @@ export default function Home() {
           Nesta plataforma, você poderá acompanhar o andamento das metas
           estabelecidas, conhecer detalhes de cada ação e entender como estamos
           trabalhando para construir uma cidade mais moderna, sustentável e inclusiva.
+        </p>
+      </section>
+
+      {/* Seção VISÃO E MISSÃO */}
+      <section ref={visaoMissaoRef} className={styles.contentSection}>
+        <h1 className={styles.title}>Visão e Missão</h1>
+        <p className={styles.text}>
+        ​A Prefeitura Municipal de São José, em Santa Catarina, 
+        orienta sua atuação por princípios que visam promover uma gestão pública eficiente e 
+        comprometida com o bem-estar da população.
+        </p>
+        <p className={styles.text}>
+        Sua missão é realizar uma administração pautada pela transparência, respeito, compromisso e ética,
+         buscando a humanização das ações e serviços oferecidos, bem como a responsabilidade social e ambiental .​
+        </p>
+        <p className={styles.text}>
+        A visão da Prefeitura é prestar serviços de qualidade e 
+        promover o desenvolvimento, cumprindo suas atribuições de forma inovadora, 
+        com o objetivo de levar qualidade de vida e bem-estar social para todos os josefenses, 
+        visando um futuro mais digno para as próximas gerações .​
+        </p>
+      </section>
+
+      {/* Seção PLANO DE GOVERNO */}
+      <section ref={planoGovernoRef} className={styles.contentSection}>
+        <h1 className={styles.title}>Proposta do Plano de Governo</h1>
+        <p className={styles.text}>
+          Descreva aqui a proposta do plano de governo...
+        </p>
+        <p className={styles.text}>
+          Mais detalhes, objetivos, metas e ações do governo...
         </p>
       </section>
     </main>
