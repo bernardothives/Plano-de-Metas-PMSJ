@@ -12,9 +12,9 @@ interface SecretariaData {
 }
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function SecretariaPage({ params }: PageProps) {
