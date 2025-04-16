@@ -17,8 +17,8 @@ type PageProps = {
   };
 };
 
-export default function SecretariaPage({ params }: PageProps) {
-  const { slug } = params;
+export default async function SecretariaPage({ params }: PageProps) {
+  const { slug } = await params;
 
   // "Forçamos" o TS a tratar secretariasContent como Record<string, SecretariaData>
   const typedSecretarias = secretariasContent as Record<string, SecretariaData>;
