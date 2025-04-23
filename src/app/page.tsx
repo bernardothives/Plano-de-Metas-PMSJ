@@ -33,7 +33,7 @@ export default function Home() {
             className={styles.navButton}
             onClick={() => scrollToSection(textRef)}
           >
-            VISÃO E MISSÃO
+            MISSÃO E VISÃO
           </button>
 
           <button
