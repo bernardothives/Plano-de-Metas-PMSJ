@@ -1,0 +1,145 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex: 1;
+    margin: 0 2rem;
+  }
+  
+  .navButton {
+    background-color: #00734a;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    font-size: 1.2rem;
+  }
+  
+  .navButton:hover {
+    background-color: #005f3a;
+  }
+  
+  .cityLogo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .bannerSection {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 155px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .bannerContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .bannerLogo {
+    max-width: 150%;
+    height: auto;
+  }
+  
+  .bannerTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 0;
+  }
+  
+  /* Adicionado position relative e z-index para criar novo contexto de empilhamento */
+  .contentSection {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  @media (max-width: 1024px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+  
+    .logoContainer {
+      margin-bottom: 1rem;
+    }
+  
+    .nav {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      margin: 1rem 0;
+    }
+  
+    .navButton {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+    }
+  
+    .cityLogo {
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  
+    .bannerSection {
+      height: 100vh;
+    }
+    .bannerTitle {
+      font-size: 2rem; /* Reduz um pouco */
+    }
+    .bannerLogo {
+      max-width: 80%;
+      height: auto;
+    }
+  }
+  

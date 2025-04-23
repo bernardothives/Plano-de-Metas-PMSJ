@@ -3,25 +3,27 @@ import styles from './page.module.css'
 
 export default function SecretariaPage() {
   const secretarias = [
-    "Secretária de Administração",
-    "Secretária de Assistência Social",
-    "Secretária de Cultura e Turismo",
-    "Secretária Integrada de Comunicação",
-    "Secretária de Desenvolvimento Econômico e Inovação",
-    "Secretária de Educação",
-    "Secretária de Esportes e Lazer",
-    "Secretária de Finanças",
-    "Secretária de Governo",
-    "Secretária de Infraestrutura",
-    "Secretária de Planejamento e Assuntos Estratégicos",
-    "Secretária da Receita",
-    "Secretária de Regularização Fundiária",
-    "Secretária de Saúde",
-    "Secretária de Segurança, Defesa Social e Trânsito",
-    "Secretária de Transparência",
-    "Secretária de Urbanismo e Serviços Públicos",
+    "Secretaria de Administração",
+    "Secretaria de Assistência Social",
+    "Secretaria de Cultura e Turismo",
+    "Secretaria Integrada de Comunicação",
+    "Secretaria de Desenvolvimento Econômico e Inovação",
+    "Secretaria de Educação",
+    "Secretaria de Esportes e Lazer",
+    "Secretaria de Finanças",
+    "Secretaria de Governo",
+    "Secretaria de Infraestrutura",
+    "Secretaria de Planejamento e Assuntos Estratégicos",
+    "Secretaria da Receita",
+    "Secretaria de Regularização Fundiária",
+    "Secretaria de Saúde",
+    "Secretaria de Segurança, Defesa Social e Trânsito",
+    "Secretaria Executiva de Transparência",
+    "Secretaria de Urbanismo e Serviços Públicos",
     "Fundação Educacional Municipal",
-    "Fundação Municipal do Meio Ambiente e Desenvolvimento Sustentável"
+    "Fundação Municipal do Meio Ambiente e Desenvolvimento Sustentável",
+    "Procuradoria Geral do Município",
+    "Autarquia São José Previdência"
   ]
 
   // Função para gerar uma URL amigável (slug) para cada secretaria.

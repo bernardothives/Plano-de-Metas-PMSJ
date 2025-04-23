@@ -104,8 +104,8 @@ export const secretariasContent = {
       sheetUrl: 'https://1drv.ms/x/c/e7d9cc0b8185d601/EdbKKoFMKMpIjy_pz8MKLekB4zas6_0dzKfPJ50FzrZ7hQ?e=VSzE2h',
       content: ''
     },
-    'secretaria-de-transparencia': {
-      title: 'Secretaria de Transparência',
+    'secretaria-executiva-de-transparencia': {
+      title: 'Secretaria Executiva de Transparência',
       encryptedContent: 'U2FsdGVkX1/1ZO7lR7z+1Pxdjz0bZPBWjJrvfZFj04A=',
       powerBIEmbedUrl: 'https://app.powerbi.com/view?r=transparencia-placeholder',
       sheetUrl: 'https://1drv.ms/x/c/e7d9cc0b8185d601/EY12StKGtJBMpEpidBEFxT0B8d9CxaLeGkvqLuTVb79vAg?e=Spy6Ea',
@@ -131,6 +131,20 @@ export const secretariasContent = {
       powerBIEmbedUrl: 'https://app.powerbi.com/view?r=meioambiente-placeholder',
       sheetUrl: 'https://1drv.ms/x/c/e7d9cc0b8185d601/EX4owBHYnudEsX2jUjc_aTsBnqcqGVnm_rnLp4INfhvICQ?e=rxOQKH',
       content: ''
-    }
+    },
+    'procuradoria-geral-do-municipio': {
+      title: 'Procuradoria Geral do Município',
+      encryptedContent: 'U2FsdGVkX19b5rdNWmfy8G/Z8AEEf4z6WR7Ila1svME=',
+      powerBIEmbedUrl: 'https://app.powerbi.com/view?r=educacional-placeholder',
+      sheetUrl: 'https://1drv.ms/x/c/e7d9cc0b8185d601/EVm5U07v1plLnSSY3LoFL2MBp4LNagkim3Qa-pynmEpg-w?e=S1YGLe',
+      content: ''
+    },
+    'autarquia-sao-jose-previdencia': {
+      title: 'Autarquia São José Previdência',
+      encryptedContent: 'U2FsdGVkX18q+kx+n+UjUC3uqAmCX4ebg8k/4oiope8=',
+      powerBIEmbedUrl: 'https://app.powerbi.com/view?r=educacional-placeholder',
+      sheetUrl: 'https://1drv.ms/x/c/e7d9cc0b8185d601/ETRShAsF2MxOrcE-PPphjwUBcAvoTySLe17C-B625ZCAVA?e=yaLfSb',
+      content: ''
+    },
   };
   
