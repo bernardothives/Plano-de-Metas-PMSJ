@@ -36,18 +36,27 @@ export default function Home() {
             MISSÃO E VISÃO
           </button>
 
-          <button
+          <a
+            href="https://drive.google.com/uc?export=download&id=1EV112Xs5QZ4hHtK6O-Ug9cWiFPnsF3w7"
             className={styles.navButton}
-            onClick={() => router.push("/planoGoverno")}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            PLANO DE GOVERNO
-          </button>
+            PLANO DE METAS
+          </a>
 
           <button
             className={styles.navButton}
             onClick={() => router.push("/secretarias")}
           >
             SECRETARIAS
+          </button>
+
+          <button
+            className={styles.navButton}
+            onClick={() => router.push("/dashboard")}
+          >
+            DASHBOARD
           </button>
         </nav>
 
