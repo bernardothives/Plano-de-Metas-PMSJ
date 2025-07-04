@@ -16,7 +16,7 @@ export default function DashboardPage() {
 
       <div className={styles.chartsContainer}>
         {/* Gráfico 1 */}
-        <div className={styles.chartWrapper}>
+        <div className={`${styles.chartWrapper} ${styles.chart1Wrapper}`}>
           <iframe
             src={chart1EmbedUrl}
             title="Dashboard Principal - Gráfico 1"
@@ -26,7 +26,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Gráfico 2 */}
-        <div className={styles.chartWrapper}>
+        <div className={`${styles.chartWrapper} ${styles.chart2Wrapper}`}>
           <iframe
             src={chart2EmbedUrl}
             title="Dashboard Principal - Gráfico 2"

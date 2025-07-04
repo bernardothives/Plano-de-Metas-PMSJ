@@ -26,11 +26,12 @@
 .chartsContainer {
   display: grid;
   width: 100%;
-  max-width: 1920px;
+  max-width: calc(623px + 689px + 2rem);
   margin: 0 auto 2rem auto;
 
-  /* Sempre duas colunas de larguras iguais */
-  grid-template-columns: 1fr 1fr;
+  /* --- ALTERAÇÃO PRINCIPAL AQUI --- */
+  /* As colunas agora são proporcionais à largura original de cada gráfico. */
+  grid-template-columns: 623fr 689fr;
   
   /* Espaçamento entre os gráficos */
   gap: 2rem;
@@ -40,14 +41,21 @@
 */
 .chartWrapper {
   width: 100%;
-  
-  /* Proporção exata do seu gráfico (700 / 584) */
-  aspect-ratio: 700 / 584;
-
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  display: flex;
+}
+
+/* Proporção correta para o Gráfico 1 (Situação Geral dos Objetivos) */
+.chart1Wrapper {
+  aspect-ratio: 623 / 420;
+}
+
+/* Proporção correta para o Gráfico 2 (Situação Geral do Cumprimento das Metas) */
+.chart2Wrapper {
+  aspect-ratio: 689 / 420;
 }
 
 .iframe {
@@ -61,6 +69,7 @@
   /* Força os gráficos a ficarem um embaixo do outro */
   .chartsContainer {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
   
   .mainContainer {
