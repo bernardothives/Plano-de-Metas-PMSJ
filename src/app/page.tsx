@@ -37,7 +37,7 @@ export default function Home() {
           </button>
 
           <a
-            href="https://drive.google.com/uc?export=download&id=1EV112Xs5QZ4hHtK6O-Ug9cWiFPnsF3w7"
+            href="https://drive.google.com/file/d/1Q_m0Y6aCTEWuCru5YiIq2tUZ-JXf3Iqp/view?usp=sharing"
             className={styles.navButton}
             target="_blank"
             rel="noopener noreferrer"
