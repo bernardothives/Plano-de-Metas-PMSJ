@@ -1,3 +1,5 @@
+// src/components/ProtectedContent.jsx
+
 'use client';
 import { useState } from 'react';
 import CryptoJS from 'crypto-js';
@@ -9,7 +11,6 @@ export default function ProtectedContent({ encryptedContent, children, title = '
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Descriptografa o conteúdo utilizando a senha digitada
     const decrypted = CryptoJS.AES.decrypt(encryptedContent, senhaDigitada);
     const texto = decrypted.toString(CryptoJS.enc.Utf8);
     if (texto === 'acesso_ok') {
@@ -65,9 +66,10 @@ export default function ProtectedContent({ encryptedContent, children, title = '
     );
   }
 
-  // Exibe o conteúdo protegido se a senha estiver correta
+  // --- MUDANÇA PRINCIPAL AQUI ---
+  // Removemos o 'maxWidth: 800px' para permitir que o conteúdo se expanda.
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '3rem auto' }}>
+    <div style={{ padding: '2rem', width: '100%', margin: '1rem auto' }}>
       {children}
     </div>
   );

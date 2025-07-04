@@ -1,35 +1,90 @@
+/* Estilos para a página da secretaria */
+
 .title {
-    color: #00743A;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  color: #00743A;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #00743A;
+}
+
+.chartsContainer {
+  display: grid;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto 2rem auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* --- MUDANÇA FINAL E PRECISA AQUI --- */
+.chartWrapper {
+  width: 100%;
+  
+  /* Usando a proporção exata do seu gráfico (700 / 584) */
+  aspect-ratio: 700 / 584;
+
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* --- AJUSTE FINAL E PRECISO AQUI --- */
+/* Classe para quando houver apenas um gráfico.
+  Usa a largura original do gráfico como 'max-width'.
+*/
+.singleChartLayout {
+  grid-template-columns: 1fr; /* Força uma única coluna */
+  
+  /* Define a largura máxima como a largura nativa do gráfico. */
+  max-width: 700px;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: #00743A;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #005f3a;
+  transform: translateY(-2px);
+}
+
+.additionalContent {
+  margin-top: 2rem;
+  max-width: 800px;
+  width: 100%;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media (max-width: 1200px) {
+  .chartsContainer {
+    grid-template-columns: 1fr;
   }
   
-  .dashboardContainer {
-    width: 100%;
-    height: 600px;
-    margin-bottom: 1rem;
+  .singleChartLayout {
+    max-width: 100%;
   }
-  
-  .iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
-  .buttonContainer {
-    margin-bottom: 1rem;
-  }
-  
-  .button {
-    background-color: #00743A;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  
-  .additionalContent {
-    margin-top: 1rem;
-  }
-  
+}

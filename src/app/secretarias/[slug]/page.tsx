@@ -1,13 +1,16 @@
+// em src/app/secretarias/[slug]/page.tsx
+
 import ProtectedContent from '@/components/ProtectedContent';
 import { secretariasContent } from '@/app/secretarias/secretariasData';
 import styles from './page.module.css';
 
-// Declaramos o tipo manualmente
+// A interface para os dados da secretaria
 interface SecretariaData {
   title: string;
   encryptedContent: string;
-  powerBIEmbedUrl: string;
   sheetUrl: string;
+  chart1EmbedUrl?: string;
+  chart2EmbedUrl?: string;
   content?: string;
 }
 
@@ -19,31 +22,52 @@ type PageProps = {
 
 export default async function SecretariaPage({ params }: PageProps) {
   const { slug } = await params;
-
-  // "Forçamos" o TS a tratar secretariasContent como Record<string, SecretariaData>
   const typedSecretarias = secretariasContent as Record<string, SecretariaData>;
-
-  // Agora typedSecretarias[slug] é SecretariaData | undefined
   const secretaria = typedSecretarias[slug];
 
   if (!secretaria) {
     return <div>Secretaria não encontrada.</div>;
   }
 
+  // Determina se temos um ou dois gráficos para aplicar um estilo específico
+  const singleChart = secretaria.chart1EmbedUrl && !secretaria.chart2EmbedUrl;
+
   return (
+    // O componente ProtectedContent já cria um container principal
     <ProtectedContent
       encryptedContent={secretaria.encryptedContent}
       title={secretaria.title}
     >
       <h1 className={styles.title}>{secretaria.title}</h1>
 
-      <div className={styles.dashboardContainer}>
-        <iframe
-          src={secretaria.powerBIEmbedUrl}
-          title={`Dashboard da ${secretaria.title}`}
-          className={styles.iframe}
-          allowFullScreen
-        />
+      {/* ESTRUTURA CORRETA ABAIXO: 
+        O container 'chartsContainer' precisa de um filho direto para cada gráfico.
+      */}
+      <div className={`${styles.chartsContainer} ${singleChart ? styles.singleChartLayout : ''}`}>
+        
+        {/* Gráfico 1, sempre envolvido por sua própria div */}
+        {secretaria.chart1EmbedUrl && (
+          <div className={styles.chartWrapper}>
+            <iframe
+              src={secretaria.chart1EmbedUrl}
+              title={`Gráfico 1 - ${secretaria.title}`}
+              className={styles.iframe}
+              allowFullScreen
+            />
+          </div>
+        )}
+
+        {/* Gráfico 2, sempre envolvido por sua própria div */}
+        {secretaria.chart2EmbedUrl && (
+          <div className={styles.chartWrapper}>
+            <iframe
+              src={secretaria.chart2EmbedUrl}
+              title={`Gráfico 2 - ${secretaria.title}`}
+              className={styles.iframe}
+              allowFullScreen
+            />
+          </div>
+        )}
       </div>
 
       <div className={styles.buttonContainer}>
@@ -53,7 +77,7 @@ export default async function SecretariaPage({ params }: PageProps) {
           rel="noopener noreferrer"
           className={styles.button}
         >
-          Preencher Planilha
+          Acessar Planilha Completa
         </a>
       </div>
 

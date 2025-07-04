@@ -4,35 +4,34 @@ import React from 'react';
 import styles from './page.module.css';
 
 export default function DashboardPage() {
-  // URL do seu relatório Power BI embutido
-  const embedUrl = '<YOUR_POWER_BI_EMBED_URL>'; // substitua pela URL real
+  // URLs de incorporação dos seus dois gráficos principais
+  const chart1EmbedUrl = 'https://1drv.ms/x/c/e7d9cc0b8185d601/IQQCrDHVQOV2Q5-7-lh2yj9cAVS_VoAASN-3H9LVZxDO_yU?em=2&wdAllowInteractivity=False&Item=Chart%201&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True';
+  const chart2EmbedUrl = 'https://1drv.ms/x/c/e7d9cc0b8185d601/IQQCrDHVQOV2Q5-7-lh2yj9cAVS_VoAASN-3H9LVZxDO_yU?em=2&wdAllowInteractivity=False&Item=Chart%202&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True';
 
   return (
-    <main className={styles.container}>
+    <main className={styles.mainContainer}>
       <h1 className={styles.title}>Dashboard dos Objetivos de Governo</h1>
 
-      <div className={styles.dashboardContainer}>
-        <iframe
-          title="Power BI Dashboard"
-          src={embedUrl}
-          className={styles.iframe}
-          allowFullScreen
-        />
-      </div>
+      <div className={styles.chartsContainer}>
+        {/* Gráfico 1 */}
+        <div className={styles.chartWrapper}>
+          <iframe
+            src={chart1EmbedUrl}
+            title="Dashboard Principal - Gráfico 1"
+            className={styles.iframe}
+            allowFullScreen
+          />
+        </div>
 
-      <div className={styles.buttonContainer}>
-        <a
-          href={embedUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.button}
-        >
-          Abrir Dashboard em Nova Aba
-        </a>
-      </div>
-
-      <div className={styles.additionalContent}>
-        {/* Adicione aqui conteúdo adicional abaixo do dashboard, se necessário */}
+        {/* Gráfico 2 */}
+        <div className={styles.chartWrapper}>
+          <iframe
+            src={chart2EmbedUrl}
+            title="Dashboard Principal - Gráfico 2"
+            className={styles.iframe}
+            allowFullScreen
+          />
+        </div>
       </div>
     </main>
   );
