@@ -1,0 +1,22 @@
+*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Define o comportamento padrão para normalizar as quebras de linha.
+* text=auto eol=lf
+
+# Força arquivos de texto conhecidos a terem quebras de linha LF.
+*.css      text
+*.html     text
+*.js       text
+*.jsx      text
+*.ts       text
+*.tsx      text
+*.json     text
+*.md       text
+*.mjs      text
+
+# Define arquivos de imagem e PDFs como binários, para que o Git não os modifique.
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.pdf     binary

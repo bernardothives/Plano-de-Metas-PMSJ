@@ -36,14 +36,12 @@ export default function Home() {
             MISSÃO E VISÃO
           </button>
 
-          <a
-            href="https://drive.google.com/file/d/1Q_m0Y6aCTEWuCru5YiIq2tUZ-JXf3Iqp/view?usp=sharing"
+          <button
             className={styles.navButton}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => router.push("/plano-de-metas")}
           >
             PLANO DE METAS
-          </a>
+          </button>
 
           <button
             className={styles.navButton}
