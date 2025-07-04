@@ -12,7 +12,7 @@ export default function DashboardPage() {
   return (
     <main className={styles.mainContainer}>
       <BackButton />
-      <h1 className={styles.title}>Dashboard dos Objetivos de Governo</h1>
+      <h1 className={styles.title}>Dashboard Geral</h1>
 
       <div className={styles.chartsContainer}>
         {/* Gráfico 1 */}
