@@ -1,0 +1,15 @@
+.backButton {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  background-color: #00743A;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.backButton:hover {
+  background-color: #005f3a;
+}

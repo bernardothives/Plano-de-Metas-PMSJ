@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './page.module.css';
+import BackButton from '@/components/BackButton'; // Importe o BackButton
 
 export default function DashboardPage() {
   // URLs de incorporação dos seus dois gráficos principais
@@ -10,6 +11,7 @@ export default function DashboardPage() {
 
   return (
     <main className={styles.mainContainer}>
+      <BackButton />
       <h1 className={styles.title}>Dashboard dos Objetivos de Governo</h1>
 
       <div className={styles.chartsContainer}>

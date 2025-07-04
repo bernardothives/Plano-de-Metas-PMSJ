@@ -1,3 +1,5 @@
+/* src/app/page.module.css */
+
 .main {
   display: flex;
   flex-direction: column;
@@ -79,29 +81,39 @@
   margin-top: 0;
 }
 
-/* Adicionado position relative e z-index para criar novo contexto de empilhamento */
+/* --- ESTILO CORRIGIDO AQUI --- */
 .contentSection {
   position: relative;
   z-index: 2;
-  padding: 2rem;
   max-width: 1200px;
-  margin: 0 auto;
-  text-align: left;
+  width: 90%;
+  /* Altere a margem para remover a sobreposição */
+  margin: 2rem auto; /* Remove o margin-top negativo */
+  padding: 3rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #00743A;
+  font-weight: bold;
 }
 
 .text {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   color: #555;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* --- Ajustes para telas menores --- */
 @media (max-width: 1024px) {
   .header {
     flex-direction: column;
@@ -134,11 +146,26 @@
   .bannerSection {
     height: 100vh;
   }
+
   .bannerTitle {
-    font-size: 2rem; /* Reduz um pouco */
+    font-size: 2rem;
   }
+
   .bannerLogo {
     max-width: 80%;
     height: auto;
+  }
+
+  .contentSection {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .text {
+    font-size: 1rem;
   }
 }

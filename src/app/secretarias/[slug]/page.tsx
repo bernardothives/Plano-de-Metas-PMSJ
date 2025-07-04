@@ -1,8 +1,7 @@
-// em src/app/secretarias/[slug]/page.tsx
-
 import ProtectedContent from '@/components/ProtectedContent';
 import { secretariasContent } from '@/app/secretarias/secretariasData';
 import styles from './page.module.css';
+import BackButton from '@/components/BackButton'; // Importe o BackButton
 
 // A interface para os dados da secretaria
 interface SecretariaData {
@@ -38,6 +37,7 @@ export default async function SecretariaPage({ params }: PageProps) {
       encryptedContent={secretaria.encryptedContent}
       title={secretaria.title}
     >
+      <BackButton />
       <h1 className={styles.title}>{secretaria.title}</h1>
 
       {/* ESTRUTURA CORRETA ABAIXO: 

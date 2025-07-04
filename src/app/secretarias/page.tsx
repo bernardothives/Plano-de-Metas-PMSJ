@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link'
 import styles from './page.module.css'
+import BackButton from '@/components/BackButton'; // Importe o BackButton
 
 export default function SecretariaPage() {
   const secretarias = [
@@ -40,6 +43,7 @@ export default function SecretariaPage() {
 
   return (
     <main className={styles.main}>
+      <BackButton />
       <h1 className={styles.title}>Secretarias e Fundações</h1>
       <div className={styles.grid}>
         {secretarias.map((nome) => (
